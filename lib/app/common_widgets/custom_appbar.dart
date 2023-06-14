@@ -1,15 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_introduction_app/app/features/first_page/first_page.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const FirstPage();
-  }
-}
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double appBarHeight = 60;

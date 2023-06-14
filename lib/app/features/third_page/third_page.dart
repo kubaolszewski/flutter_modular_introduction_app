@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_introduction_app/app/home_page.dart';
+import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
+import 'package:flutter_modular_introduction_app/app/features/third_page/cubit/third_page_cubit.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThirdPageCubit thirdPageCubit = Modular.get<ThirdPageCubit>();
     return Scaffold(
-      appBar: const CustomAppBar(title:'Third Page'),
+      appBar: const CustomAppBar(title: 'Third Page'),
       body: Container(
         color: Colors.orange,
         child: Center(
@@ -20,10 +22,18 @@ class ThirdPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 24),
               ),
               ElevatedButton(
-                  onPressed: () => Modular.to.popUntil((route) => false,),
+                  onPressed: () {
+                    Modular.to.popUntil(
+                      (route) => false,
+                    );
+                    thirdPageCubit.statusCheck();
+                  },
                   child: const Text('Back to first page')),
-                  ElevatedButton(
-                  onPressed: () => Modular.to.pushNamed('/second'),
+              ElevatedButton(
+                  onPressed: () {
+                    Modular.to.pushNamed('/second');
+                    thirdPageCubit.statusCheck();
+                  },
                   child: const Text('Back to second page'))
             ],
           ),
