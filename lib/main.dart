@@ -4,6 +4,7 @@ import 'package:flutter_modular_introduction_app/app/features/first_page/first_p
 import 'package:flutter_modular_introduction_app/app/features/second_page/second_page.dart';
 import 'package:flutter_modular_introduction_app/app/features/third_page/third_page.dart';
 import 'package:flutter_modular_introduction_app/app/home_page.dart';
+import 'package:flutter_modular_introduction_app/app_widget.dart';
 
 void main() {
   return runApp(ModularApp(module: AppModule(), child: const MyApp()));
@@ -22,17 +23,3 @@ class AppModule extends Module {
       ];
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.purple, useMaterial3: true),
-      routeInformationParser: Modular.routeInformationParser,
-      routerDelegate: Modular.routerDelegate,
-    );
-  }
-}
