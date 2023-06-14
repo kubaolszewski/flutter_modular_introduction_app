@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_introduction_app/app/features/second_page/second_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_introduction_app/app/home_page.dart';
 
 class FirstPage extends StatelessWidget {
@@ -19,11 +19,11 @@ class FirstPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const SecondPage()));
-                    },
-                    child: const Text('Navigate to second page'))
+                    onPressed: () => Modular.to.pushNamed('/second'),
+                    child: const Text('Navigate to second page')),
+                    ElevatedButton(
+                    onPressed: () => Modular.to.pushNamed('/third'),
+                    child: const Text('Navigate to third page'))
               ],
             ),
           ),
