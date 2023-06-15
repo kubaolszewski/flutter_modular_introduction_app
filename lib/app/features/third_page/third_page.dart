@@ -25,13 +25,13 @@ class ThirdPage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Modular.to.popUntil(ModalRoute.withName(FirstPagePath.firstPath));
+                    Modular.to.pushReplacementNamed(FirstPagePath.firstPath);
                     thirdPageCubit.statusCheck();
                   },
                   child: const Text('Back to first page')),
               ElevatedButton(
                   onPressed: () {
-                    Modular.to.pushNamed(SecondPagePath.secondPath);
+                    Modular.to.pushReplacementNamed(SecondPagePath.secondPath);
                     thirdPageCubit.statusCheck();
                   },
                   child: const Text('Back to second page'))

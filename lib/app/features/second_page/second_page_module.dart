@@ -21,5 +21,5 @@ mixin SecondPagePath {
   static String main = AppModulesPath.secondPageModulesPath;
   static String secondScreenPath = '/second-page';
 
-  static String secondPath = '$main/$secondScreenPath';
+  static String secondPath = '$main$secondScreenPath';
 }
