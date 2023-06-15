@@ -10,14 +10,33 @@ class FirstSecondPage extends StatelessWidget {
       appBar: const CustomAppBar(title: 'First Second Page'),
       body: Container(
         color: Colors.blue,
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
+              const Text(
                 'This is the first, blue page',
                 style: TextStyle(color: Colors.white, fontSize: 24),
               ),
+              Localizations.override(
+                context: context,
+                locale: const Locale('es'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: CalendarDatePicker(
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(2100),
+                      onDateChanged: (value) {},
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
