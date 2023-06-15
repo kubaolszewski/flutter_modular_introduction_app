@@ -10,7 +10,6 @@ class ThirdPageCubit extends Cubit<ThirdPageState> {
     emit(const ThirdPageState(status: Status.loading));
     try {
       emit(const ThirdPageState(status: Status.success));
-      print('Moving to a different page');
     } catch (error) {
       emit(ThirdPageState(
           status: Status.failure, errorMessage: error.toString()));

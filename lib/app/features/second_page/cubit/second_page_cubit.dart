@@ -12,7 +12,6 @@ class SecondPageCubit extends Cubit<SecondPageState> {
     emit(const SecondPageState(status: Status.loading));
     try {
       emit(const SecondPageState(status: Status.success));
-      print('Moving to a different page');
     } catch (error) {
       emit(SecondPageState(
           status: Status.failure, errorMessage: error.toString()));

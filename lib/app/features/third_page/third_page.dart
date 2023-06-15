@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
+import 'package:flutter_modular_introduction_app/app/features/first_page/first_page_module.dart';
+import 'package:flutter_modular_introduction_app/app/features/second_page/second_page_module.dart';
 import 'package:flutter_modular_introduction_app/app/features/third_page/cubit/third_page_cubit.dart';
 
 class ThirdPage extends StatelessWidget {
@@ -23,15 +25,13 @@ class ThirdPage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Modular.to.popUntil(
-                      (route) => false,
-                    );
+                    Modular.to.popUntil(ModalRoute.withName(FirstPagePath.firstPath));
                     thirdPageCubit.statusCheck();
                   },
                   child: const Text('Back to first page')),
               ElevatedButton(
                   onPressed: () {
-                    Modular.to.pushNamed('/second');
+                    Modular.to.pushNamed(SecondPagePath.secondPath);
                     thirdPageCubit.statusCheck();
                   },
                   child: const Text('Back to second page'))

@@ -10,7 +10,6 @@ class FirstPageCubit extends Cubit<FirstPageState> {
     emit(const FirstPageState(status: Status.loading));
     try {
       emit(const FirstPageState(status: Status.success));
-      print('Moving to different page');
     } catch (error) {
       emit(FirstPageState(
           status: Status.failure, errorMessage: error.toString()));

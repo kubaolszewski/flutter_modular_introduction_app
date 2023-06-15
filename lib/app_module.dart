@@ -4,10 +4,17 @@ import 'package:flutter_modular_introduction_app/app/features/second_page/second
 import 'package:flutter_modular_introduction_app/app/features/third_page/third_page_module.dart';
 
 class AppModule extends Module {
+
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute('/', module: FirstPageModule()),
-        ModuleRoute('/', module: SecondPageModule()),
-        ModuleRoute('/', module: ThirdPageModule())
+        ModuleRoute(AppModulesPath.firstPageModulesPath, module: FirstPageModule()),
+        ModuleRoute(AppModulesPath.secondPageModulesPath, module: SecondPageModule()),
+        ModuleRoute(AppModulesPath.thirdPageModulesPath, module: ThirdPageModule())
       ];
+}
+
+mixin AppModulesPath {
+  static String firstPageModulesPath = '/';
+  static String secondPageModulesPath = '/second';
+  static String thirdPageModulesPath = '/third';
 }
