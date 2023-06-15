@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_introduction_app/app/features/third_page/third_page.dart';
-import 'package:flutter_modular_introduction_app/app/home_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
+import 'package:flutter_modular_introduction_app/app/features/second_page/cubit/second_page_cubit.dart';
+import 'package:flutter_modular_introduction_app/app/features/third_page/third_page_module.dart';
+import 'package:flutter_modular_introduction_app/app_module.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SecondPageCubit secondPageCubit = Modular.get<SecondPageCubit>();
     return Scaffold(appBar: const CustomAppBar(title:'Second Page'),
       body: Container(
           color: Colors.green,
@@ -19,11 +23,14 @@ class SecondPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const ThirdPage()));
+                    onPressed: ()  {Modular.to.pushNamed(ThirdPagePath.thirdPath);
+                    secondPageCubit.statusCheck();
                     },
-                    child: const Text('Navigate to third page'))
+                    child: const Text('Navigate to third page')),
+                    ElevatedButton(
+                    onPressed: ()  {Modular.to.pushReplacementNamed(AppModulesPath.firstPageModulesPath);
+                    secondPageCubit.statusCheck();},
+                    child: const Text('Navigate to first page'))
               ],
             ),
           ),
