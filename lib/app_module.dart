@@ -6,8 +6,8 @@ import 'package:flutter_modular_introduction_app/app/features/third_page/third_p
 class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute('/first', module: FirstPageModule()),
-        ModuleRoute('/second', module: SecondPageModule()),
-        ModuleRoute('/third', module: ThirdPageModule())
+        ModuleRoute('/', module: FirstPageModule()),
+        ModuleRoute('/', module: SecondPageModule()),
+        ModuleRoute('/', module: ThirdPageModule())
       ];
 }
