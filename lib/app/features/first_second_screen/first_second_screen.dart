@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
 
 class FirstSecondPage extends StatelessWidget {
@@ -18,6 +19,11 @@ class FirstSecondPage extends StatelessWidget {
                 'This is the first, blue page',
                 style: TextStyle(color: Colors.white, fontSize: 24),
               ),
+              const SizedBox(height:20),
+               Text(AppLocalizations.of(context)!.helloWorld,
+                style: const TextStyle(color: Colors.white, fontSize: 24),
+              ),
+              const SizedBox(height:20),
               Localizations.override(
                 context: context,
                 locale: const Locale('es'),
