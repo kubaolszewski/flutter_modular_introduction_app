@@ -12,8 +12,7 @@ class SecondPageModule extends Module {
       ];
   @override
   List<ModularRoute> get routes => [
-        ChildRoute(SecondPagePath.secondScreenPath,
-            child: (context, args) => const SecondPage()),
+        ChildRoute(SecondPagePath.secondScreenPath, child: (context, args) => const SecondPage()),
       ];
 }
 
@@ -21,5 +20,5 @@ mixin SecondPagePath {
   static String main = AppModulesPath.secondPageModulesPath;
   static String secondScreenPath = '/second-page';
 
-  static String secondPath = '$main/$secondScreenPath';
+  static String secondPath = '$main$secondScreenPath';
 }
