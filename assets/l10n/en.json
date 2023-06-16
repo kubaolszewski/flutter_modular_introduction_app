@@ -1,0 +1,16 @@
+{
+    "firstHeader": "First Page",
+    "secondHeader": "Second Page",
+    "firstSecondHeader":"First Second Page",
+    "thirdHeader":"Third Page",
+
+    "firstPageText":"This is the first, blue page",
+    "firstSecondPageText":"This is the first but second, blue page",
+    "secondPageText":"This is the second, green page",
+    "thirdPageText":"This is the third, orange page",
+
+    "firstPageNav":"Navigate to first page",
+    "firstSecondPageNav":"Navigate to second page on first module",
+    "secondPaveNav":"Navigate to second page",
+    "thirdPageNav":"Navigate to third page"
+}

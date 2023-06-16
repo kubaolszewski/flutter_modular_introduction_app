@@ -1,0 +1,15 @@
+{
+    "firstHeader": "Pierwszy ekran",
+    "secondHeader": "Drugi ekran",
+    "firstSecondHeader":"Ekran pośredni",
+    "thirdHeader":"Trzeci ekran",
+
+    "firstPageText":"To jest pierwszy, niebieski ekran",
+    "firstSecondPageText":"To jest ekran pośredni",
+    "secondPageText":"To jest drugi, zielony ekran",
+    "thirdPageText":"To jest trzeci, pomarańczowy ekran",
+
+    "firstPageNav":"Przejdź do pierwszego ekranu",
+    "firstSecondPageNav":"Przejdź do ekranu pośredniego",
+    "secondPaveNav":"Przejdź do drugiego ekranu",
+    "thirdPageNav":"Przejdź do trzeciego ekranu"}
