@@ -9,10 +9,10 @@ class FirstSecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  CustomAppBar(title: LocaleKeys.firstSecondHeader.tr()),
+      appBar: CustomAppBar(title: LocaleKeys.firstSecondHeader.tr()),
       body: Container(
         color: Colors.blue,
-        child:  Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

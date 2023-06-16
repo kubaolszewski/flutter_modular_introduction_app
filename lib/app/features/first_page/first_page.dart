@@ -15,14 +15,14 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     FirstPageCubit firstPageCubit = Modular.get<FirstPageCubit>();
     return Scaffold(
-      appBar:  CustomAppBar(title: LocaleKeys.firstHeader.tr()),
+      appBar: CustomAppBar(title: LocaleKeys.firstHeader.tr()),
       body: Container(
         color: Colors.blue,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               Text(
+              Text(
                 LocaleKeys.firstPageText.tr(),
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
@@ -31,20 +31,19 @@ class FirstPage extends StatelessWidget {
                     Modular.to.pushReplacementNamed(SecondPagePath.secondPath);
                     firstPageCubit.statusCheck();
                   },
-                  child:  Text(LocaleKeys.secondPaveNav.tr())),
-                  ElevatedButton(
+                  child: Text(LocaleKeys.secondPaveNav.tr())),
+              ElevatedButton(
                   onPressed: () {
                     Modular.to.pushNamed(FirstPagePath.secondScreenPath);
                     firstPageCubit.statusCheck();
                   },
-                  child:  Text(LocaleKeys.firstSecondPageNav.tr())),
-                  
+                  child: Text(LocaleKeys.firstSecondPageNav.tr())),
               ElevatedButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed(ThirdPagePath.thirdPath);
                     firstPageCubit.statusCheck();
                   },
-                  child:  Text(LocaleKeys.thirdPageNav.tr()))
+                  child: Text(LocaleKeys.thirdPageNav.tr()))
             ],
           ),
         ),

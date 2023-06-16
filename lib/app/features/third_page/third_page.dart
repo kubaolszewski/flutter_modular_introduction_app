@@ -14,14 +14,14 @@ class ThirdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ThirdPageCubit thirdPageCubit = Modular.get<ThirdPageCubit>();
     return Scaffold(
-      appBar:  CustomAppBar(title: LocaleKeys.thirdHeader.tr()),
+      appBar: CustomAppBar(title: LocaleKeys.thirdHeader.tr()),
       body: Container(
         color: Colors.orange,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               Text(
+              Text(
                 LocaleKeys.thirdPageText.tr(),
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
@@ -30,13 +30,13 @@ class ThirdPage extends StatelessWidget {
                     Modular.to.pushReplacementNamed(FirstPagePath.firstPath);
                     thirdPageCubit.statusCheck();
                   },
-                  child:  Text(LocaleKeys.firstPageNav.tr())),
+                  child: Text(LocaleKeys.firstPageNav.tr())),
               ElevatedButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed(SecondPagePath.secondPath);
                     thirdPageCubit.statusCheck();
                   },
-                  child:  Text(LocaleKeys.secondPaveNav.tr()))
+                  child: Text(LocaleKeys.secondPaveNav.tr()))
             ],
           ),
         ),

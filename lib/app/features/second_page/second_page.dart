@@ -13,30 +13,34 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SecondPageCubit secondPageCubit = Modular.get<SecondPageCubit>();
-    return Scaffold(appBar:  CustomAppBar(title: LocaleKeys.secondHeader.tr()),
+    return Scaffold(
+      appBar: CustomAppBar(title: LocaleKeys.secondHeader.tr()),
       body: Container(
-          color: Colors.green,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Text(
-                  LocaleKeys.secondPageText,
-                  style: TextStyle(color: Colors.white, fontSize: 24),
-                ),
-                ElevatedButton(
-                    onPressed: ()  {Modular.to.pushNamed(ThirdPagePath.thirdPath);
+        color: Colors.green,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+               Text(
+                LocaleKeys.secondPageText.tr(),
+                style: const TextStyle(color: Colors.white, fontSize: 24),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Modular.to.pushNamed(ThirdPagePath.thirdPath);
                     secondPageCubit.statusCheck();
-                    },
-                    child:  Text(LocaleKeys.thirdPageNav.tr())),
-                    ElevatedButton(
-                    onPressed: ()  {Modular.to.pushReplacementNamed(AppModulesPath.firstPageModulesPath);
-                    secondPageCubit.statusCheck();},
-                    child:  Text(LocaleKeys.firstPageNav.tr()))
-              ],
-            ),
+                  },
+                  child: Text(LocaleKeys.thirdPageNav.tr())),
+              ElevatedButton(
+                  onPressed: () {
+                    Modular.to.pushReplacementNamed(AppModulesPath.firstPageModulesPath);
+                    secondPageCubit.statusCheck();
+                  },
+                  child: Text(LocaleKeys.firstPageNav.tr()))
+            ],
           ),
         ),
+      ),
     );
   }
 }
