@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
+import 'package:flutter_modular_introduction_app/core/applocalization_context.dart';
 
 class FirstSecondPage extends StatefulWidget {
   const FirstSecondPage({super.key});
@@ -14,7 +14,7 @@ class _FirstSecondPageState extends State<FirstSecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: AppLocalizations.of(context)!.firstSecondPageHeader),
+      appBar: CustomAppBar(title: context.localizations.firstSecondPageHeader),
       body: Container(
         color: Colors.blue,
         child: Center(
@@ -22,46 +22,42 @@ class _FirstSecondPageState extends State<FirstSecondPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                AppLocalizations.of(context)!.firstSecondPage,
+                context.localizations.firstSecondPage,
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
               const SizedBox(height: 20),
               Text(
-                AppLocalizations.of(context)!.helloWorld,
+                context.localizations.helloWorld,
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
               const SizedBox(height: 20),
               Text(
-                AppLocalizations.of(context)!.nWombats(5),
+                context.localizations.nWombats(5),
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
               const SizedBox(height: 20),
-              Localizations.override(
-                context: context,
-                locale: Localizations.localeOf(context),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: CalendarDatePicker(
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(1900),
-                      lastDate: DateTime(2100),
-                      onDateChanged: (value) {
-                        setState(() {
-                          dateValue = value;
-                        });
-                      },
-                    ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: CalendarDatePicker(
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime(2100),
+                    onDateChanged: (value) {
+                      setState(() {
+                        dateValue = value;
+                      });
+                    },
                   ),
                 ),
               ),
               const SizedBox(height: 20),
               Text(
-                AppLocalizations.of(context)!.helloWorldOn(dateValue),
+                context.localizations.helloWorldOn(dateValue),
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               )
             ],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appbar.dart';
 import 'package:flutter_modular_introduction_app/app/features/first_page/first_page_module.dart';
 import 'package:flutter_modular_introduction_app/app/features/second_page/second_page_module.dart';
 import 'package:flutter_modular_introduction_app/app/features/third_page/cubit/third_page_cubit.dart';
+import 'package:flutter_modular_introduction_app/core/applocalization_context.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -13,7 +13,7 @@ class ThirdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ThirdPageCubit thirdPageCubit = Modular.get<ThirdPageCubit>();
     return Scaffold(
-      appBar:  CustomAppBar(title: AppLocalizations.of(context)!.thirdPageHeader),
+      appBar:  CustomAppBar(title: context.localizations.thirdPageHeader),
       body: Container(
         color: Colors.orange,
         child: Center(
@@ -21,7 +21,7 @@ class ThirdPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
                Text(
-                AppLocalizations.of(context)!.thirdPage,
+                context.localizations.thirdPage,
                 style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
               ElevatedButton(
@@ -29,13 +29,13 @@ class ThirdPage extends StatelessWidget {
                     Modular.to.pushReplacementNamed(FirstPagePath.firstPath);
                     thirdPageCubit.statusCheck();
                   },
-                  child:  Text(AppLocalizations.of(context)!.firstPageNav)),
+                  child:  Text(context.localizations.firstPageNav)),
               ElevatedButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed(SecondPagePath.secondPath);
                     thirdPageCubit.statusCheck();
                   },
-                  child:  Text(AppLocalizations.of(context)!.secondPageNav))
+                  child:  Text(context.localizations.secondPageNav))
             ],
           ),
         ),

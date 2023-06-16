@@ -5,6 +5,7 @@ import 'package:flutter_modular_introduction_app/app/common_widgets/custom_appba
 import 'package:flutter_modular_introduction_app/app/features/second_page/cubit/second_page_cubit.dart';
 import 'package:flutter_modular_introduction_app/app/features/third_page/third_page_module.dart';
 import 'package:flutter_modular_introduction_app/app_module.dart';
+import 'package:flutter_modular_introduction_app/core/applocalization_context.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -12,7 +13,7 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SecondPageCubit secondPageCubit = Modular.get<SecondPageCubit>();
-    return Scaffold(appBar:  CustomAppBar(title:AppLocalizations.of(context)!.firstPageHeader),
+    return Scaffold(appBar:  CustomAppBar(title: context.localizations.firstPageHeader),
       body: Container(
           color: Colors.green,
           child: Center(
@@ -27,11 +28,11 @@ class SecondPage extends StatelessWidget {
                     onPressed: ()  {Modular.to.pushNamed(ThirdPagePath.thirdPath);
                     secondPageCubit.statusCheck();
                     },
-                    child:  Text(AppLocalizations.of(context)!.thirdPageNav)),
+                    child:  Text(context.localizations.thirdPageNav)),
                     ElevatedButton(
                     onPressed: ()  {Modular.to.pushReplacementNamed(AppModulesPath.firstPageModulesPath);
                     secondPageCubit.statusCheck();},
-                    child:  Text(AppLocalizations.of(context)!.firstPageNav))
+                    child:  Text(context.localizations.firstPageNav))
               ],
             ),
           ),
