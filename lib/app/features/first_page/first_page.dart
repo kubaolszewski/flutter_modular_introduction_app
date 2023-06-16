@@ -5,6 +5,7 @@ import 'package:flutter_modular_introduction_app/app/features/first_page/cubit/f
 import 'package:flutter_modular_introduction_app/app/features/first_page/first_page_module.dart';
 import 'package:flutter_modular_introduction_app/app/features/second_page/second_page_module.dart';
 import 'package:flutter_modular_introduction_app/app/features/third_page/third_page_module.dart';
+import 'package:flutter_modular_introduction_app/core/applocalization_context.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -13,36 +14,35 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     FirstPageCubit firstPageCubit = Modular.get<FirstPageCubit>();
     return Scaffold(
-      appBar: const CustomAppBar(title: 'First Page'),
+      appBar:  CustomAppBar(title: context.localizations.firstPageHeader),
       body: Container(
         color: Colors.blue,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text(
-                'This is the first, blue page',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+              Text(
+                context.localizations.firstPage,
+                style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
               ElevatedButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed(SecondPagePath.secondPath);
                     firstPageCubit.statusCheck();
                   },
-                  child: const Text('Navigate to second page')),
-                  ElevatedButton(
+                  child:  Text(context.localizations.secondPageNav)),
+              ElevatedButton(
                   onPressed: () {
                     Modular.to.pushNamed(FirstPagePath.secondScreenPath);
                     firstPageCubit.statusCheck();
                   },
-                  child: const Text('Navigate to second page on first module')),
-                  
+                  child:  Text(context.localizations.firstSecondPageNav)),
               ElevatedButton(
                   onPressed: () {
                     Modular.to.pushReplacementNamed(ThirdPagePath.thirdPath);
                     firstPageCubit.statusCheck();
                   },
-                  child: const Text('Navigate to third page'))
+                  child:  Text(context.localizations.thirdPageNav))
             ],
           ),
         ),
